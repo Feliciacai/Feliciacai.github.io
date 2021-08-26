@@ -20,13 +20,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="KDE 您可以使用KDE的设置来微调字体、图标和部件缩放，这些改动会同时影响 Qt 和 GTK+ 程序。 要调整整体缩放： 系统设置→显示和监控→显示配置→缩放显示 将滑块调整至适合的位置 重新启动以使设置生效  要仅调整字体缩放： 系统设置→字体 勾选“固定字体DPI”并调整DPI的值。调整之后重新启动应用程序即可生效。要在整个桌面上生效，您需要注销之后重新登录。  要仅调整图标缩放： 系统设置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="My First Artical">
 <meta property="og:url" content="http://example.com/2021/08/26/My-First-Artical/index.html">
 <meta property="og:site_name" content="Felicia&#39;s blog">
+<meta property="og:description" content="KDE 您可以使用KDE的设置来微调字体、图标和部件缩放，这些改动会同时影响 Qt 和 GTK+ 程序。 要调整整体缩放： 系统设置→显示和监控→显示配置→缩放显示 将滑块调整至适合的位置 重新启动以使设置生效  要仅调整字体缩放： 系统设置→字体 勾选“固定字体DPI”并调整DPI的值。调整之后重新启动应用程序即可生效。要在整个桌面上生效，您需要注销之后重新登录。  要仅调整图标缩放： 系统设置">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-08-26T03:33:08.000Z">
-<meta property="article:modified_time" content="2021-08-26T03:33:08.519Z">
+<meta property="article:modified_time" content="2021-08-26T03:43:25.117Z">
 <meta property="article:author" content="Felicia">
 <meta name="twitter:card" content="summary">
 
@@ -182,8 +184,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2021-08-26 11:33:08" itemprop="dateCreated datePublished" datetime="2021-08-26T11:33:08+08:00">2021-08-26</time>
+      <time title="创建时间：2021-08-26 11:33:08 / 修改时间：11:43:25" itemprop="dateCreated datePublished" datetime="2021-08-26T11:33:08+08:00">2021-08-26</time>
     </span>
 
   
@@ -193,7 +196,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>0</span>
+      <span>694</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -211,7 +214,36 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <p>KDE</p>
+<p>您可以使用KDE的设置来微调字体、图标和部件缩放，这些改动会同时影响 Qt 和 GTK+ 程序。</p>
+<p>要调整整体缩放：</p>
+<pre><code>系统设置→显示和监控→显示配置→缩放显示
+将滑块调整至适合的位置
+重新启动以使设置生效
+</code></pre>
+<p>要仅调整字体缩放：</p>
+<pre><code>系统设置→字体
+勾选“固定字体DPI”并调整DPI的值。调整之后重新启动应用程序即可生效。要在整个桌面上生效，您需要注销之后重新登录。
+</code></pre>
+<p>要仅调整图标缩放：</p>
+<pre><code>系统设置→图标→配置图标大小
+为每一项选择合适的图标大小，更改将会立即生效。
+</code></pre>
+<p>非整数倍缩放下的Bug</p>
+<p>当您使用非整数倍的缩放比例时，这可能导致一些 Qt 应用程序的字体渲染出现问题（例如 okular）。</p>
+<p>有一个办法可以绕过这个问题：</p>
+<pre><code>将缩放比例设为1
+用上面的方法调整字体和图标缩放（这会影响所有的应用程序，且不会导致字体问题）
+重新启动KDE
+如果需要缩放 GTK 程序，设置环境变量GDK_SCALE/GDK_DPI_SCALE（参见下文）。
+</code></pre>
+<p>托盘图标不缩放</p>
+<p>托盘图标不会随着整体而缩放。Plasma 默认会忽略 Qt 设置。要让 Plasma 使用 Qt 设置，将PLASMA_USE_QT_SCALING 设为1.<br>Xfce</p>
+<p>打开设置管理器→外观→字体，修改 DPI 的值。在 HiDPI 显示器上，通常可以设为180或者192。要获得更精确的数字，可以使用xdpyinfo | grep resolution，使用输出DPI两倍的值。</p>
+<p>要增大托盘图标，右键点击托盘的空白处，选择属性，将最大图标大小设置为32,48或者64。<br>Cinnamon</p>
+<p>应当开箱即用。<br>Enlightenment</p>
+<p>对于E18，首先打开设置面板，在 外观→缩放 中，你可以调整缩放倍数。在MBPr 15 上，你可以选择1.2。 </p>
+
     </div>
 
     
@@ -261,7 +293,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">0k</span>
+    <span title="站点总字数">1k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
